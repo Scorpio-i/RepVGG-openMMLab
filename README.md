@@ -1,3 +1,3 @@
 # RepVGG-openMMLab
-Competition
-TODO
+
+requries { mim && torch && mmcls }
