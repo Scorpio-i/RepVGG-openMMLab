@@ -4,7 +4,7 @@ from mmcls.models.backbones.RepVGG import RepVGG
 g4_map = {l: 4 for l in [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]}
 
 def test_image_classifier_RepVGG():
-        model = dict(
+        model_cfg = dict(
         type='ImageClassifier',
         backbone=dict(type='RepVGG',num_blocks=[4, 6, 16, 1], width_multiplier=[2.5, 2.5, 2.5, 5],override_groups_map=g4_map),
         neck=None,
