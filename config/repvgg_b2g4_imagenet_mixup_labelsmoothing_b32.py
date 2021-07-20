@@ -21,7 +21,7 @@ model = dict(
 # dataset settings
 dataset_type = 'ImageNet'
 img_norm_cfg = dict(
-    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225], to_rgb=True)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='RandomResizedCrop', size=224),
@@ -65,7 +65,7 @@ evaluation = dict(interval=1, metric='accuracy')
 optimizer = dict(type='SGD', lr=0.1, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # learning policy
-lr_config = dict(policy='step', step=[30, 60, 90])
+lr_config = dict(policy='step', step=[50, 100, 150])
 runner = dict(type='EpochBasedRunner', max_epochs=200)
 
 # checkpoint saving
