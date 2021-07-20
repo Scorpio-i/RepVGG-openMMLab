@@ -8,15 +8,21 @@ g4_map = {l: 4 for l in [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]}
 
 model = dict(
     type='ImageClassifier',
-    backbone=dict(type='RepVGG',num_blocks=[4, 6, 16, 1], width_multiplier=[2.5, 2.5, 2.5, 5],override_groups_map=g4_map),
+    backbone=dict(
+        type='RepVGG',
+        num_classes=1000,
+        num_blocks=[4, 6, 16, 1],
+        width_multiplier=[2.5, 2.5, 2.5, 5],
+        override_groups_map=g4_map
+        ),
     neck=None,
-    head=dict(type='ClsHead',loss=dict(
-            type='CrossEntropyLoss', loss_weight=1.0),
-            topk=(1, 5)),
-    train_cfg=dict(
-        augments=dict(type='BatchMixup', alpha=0.2, num_classes=1000,
-                      prob=1.))
-            )
+    head=dict(
+        type='ClsHead',
+        loss=dict(
+            type='CrossEntropyLoss',
+            loss_weight=1.0),
+        topk=(1, 5)
+        ))
 
 # dataset settings
 dataset_type = 'ImageNet'
@@ -82,5 +88,6 @@ log_config = dict(
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 load_from = None
+# load_from = '../RepVGG-openMMLab/ckpt/RepVGG-B2g4-200epochs-train.pth'
 resume_from = None
 workflow = [('train', 1)]

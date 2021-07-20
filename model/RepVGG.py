@@ -115,7 +115,7 @@ class RepVGG(nn.Module):
         override_groups_map:.... ,default None
         use_se: use SEBlock or not ,default False
     """
-    def __init__(self, num_blocks,num_classes=1000,width_multiplier=None, override_groups_map=None, use_se=False):
+    def __init__(self, num_blocks,num_classes,width_multiplier=None, override_groups_map=None, use_se=False):
         super(RepVGG, self).__init__()
         assert len(width_multiplier) == 4 ," "
 
