@@ -8,6 +8,7 @@ except ImportError:
     exit_with_error('Please install mmcls, mmcv, torch to run this example.')
 
 """
+
 The Docs
 
 B2g4 2560
@@ -83,18 +84,18 @@ class RepVGGBlock(nn.Module):
         else:
             self.se = nn.Identity()
     
-        self.relu = nn.ReLU()
-        self.identity = nn.BatchNorm2d(num_features=in_channels) if out_channels == in_channels and stride == 1 else None
-        self.kernel33 = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, stride=stride, padding=padding, groups=groups)
-        self.kernel11 = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=1, stride=stride, padding=padding11, groups=groups)
+        self.nonlinearity = nn.ReLU()
+        self.rbr_identity = nn.BatchNorm2d(num_features=in_channels) if out_channels == in_channels and stride == 1 else None
+        self.rbr_dense = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, stride=stride, padding=padding, groups=groups)
+        self.rbr_1x1 = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=1, stride=stride, padding=padding11, groups=groups)
 
     def forward(self, inputs):
-        if self.identity is None:
+        if self.rbr_identity is None:
             id_out = 0
         else:
-            id_out = self.identity(inputs)
+            id_out = self.rbr_identity(inputs)
 
-        return self.relu(self.se(self.kernel33(inputs) + self.kernel11(inputs) + id_out))
+        return self.nonlinearity(self.se(self.rbr_dense(inputs) + self.rbr_1x1(inputs) + id_out))
     
 
 
