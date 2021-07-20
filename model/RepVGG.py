@@ -115,7 +115,7 @@ class RepVGG(nn.Module):
         override_groups_map:.... ,default None
         use_se: use SEBlock or not ,default False
     """
-    def __init__(self, num_blocks, width_multiplier=None, override_groups_map=None, use_se=False):
+    def __init__(self, num_blocks,num_classes=1000,width_multiplier=None, override_groups_map=None, use_se=False):
         super(RepVGG, self).__init__()
         assert len(width_multiplier) == 4 ," "
 
@@ -131,6 +131,8 @@ class RepVGG(nn.Module):
         self.stage3 = self._make_stage(int(256 * width_multiplier[2]), num_blocks[2], stride=2)
         self.stage4 = self._make_stage(int(512 * width_multiplier[3]), num_blocks[3], stride=2)
         self.gap = nn.AdaptiveAvgPool2d(output_size=1)
+        self.linear = nn.Linear(int(512 * width_multiplier[3]), num_classes)
+
 
 
     def _make_stage(self, planes, num_blocks, stride):
@@ -153,6 +155,7 @@ class RepVGG(nn.Module):
         out = self.stage4(out)
         out = self.gap(out)
         out = out.view(out.size(0), -1)
+        out = self.linear(out)
         return out
 
 
