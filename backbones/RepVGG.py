@@ -106,7 +106,7 @@ class RepVGGBlock(nn.Module):
 
 
     
-@BACKBONES.register_module()
+# @BACKBONES.register_module()
 class RepVGG(nn.Module):
     """VGG backbone
     Args:

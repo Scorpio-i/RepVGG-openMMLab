@@ -1,10 +1,12 @@
 """
-B2g4
+B3g4 
 RepVGG(num_blocks=[4, 6, 16, 1], 
-    width_multiplier=[2.5, 2.5, 2.5, 5], override_groups_map=g4_map)
-    
+                width_multiplier=[3, 3, 3, 5], override_groups_map=g4_map)
+
 """
+
 g4_map = {l: 4 for l in [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26]}
+
 
 model = dict(
     type='ImageClassifier',
@@ -12,7 +14,7 @@ model = dict(
         type='RepVGG',
         num_classes=1000,
         num_blocks=[4, 6, 16, 1],
-        width_multiplier=[2.5, 2.5, 2.5, 5],
+        width_multiplier=[3, 3, 3, 5],
         override_groups_map=g4_map
         ),
     neck=None,
