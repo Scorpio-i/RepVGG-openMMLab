@@ -2,11 +2,11 @@
 
 #### 使用指南
 ##### 第一次使用mmcv？
-1. **使用mim来安装mmcls**
+1. **使用mim来安装mmcv-full**
 ```
 pip install git+https://github.com/open-mmlab/mim.git
 
-mim install mmcls
+mim install mmcv-full
 
 ```
 
@@ -39,6 +39,6 @@ __all__ = [
 ```
 
 
-TODO
-一些参考
-一些使用方法
+#### **参考**
+[RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
+[RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
