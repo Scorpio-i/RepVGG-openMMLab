@@ -9,7 +9,7 @@ data/download_imagenet.sh 可以做到自动构建Imagenet数据集为
 mmclas需要的结构
 
 mkdir -p mmclassification/data
-cp RepVGG-openMMLa/data/download_imagenet.sh mmclassification/data
+cp RepVGG-openMMLab/data/download_imagenet.sh mmclassification/data
 cd mmclassification/data
 bash download_imagenet.sh
 
@@ -40,7 +40,7 @@ pip install -e .
 3. **到MMclassification注册RepVGG**
 
 ```
-cp RepVGG-openMMLa/backbones/RepVGG.py \
+cp RepVGG-openMMLab/backbones/RepVGG.py \
 mmclassification/mmcls/models/backbones/
 
 在mmclassification/mmcls/models/backbones/__init__.py中添加新模块来注册RepVGG
@@ -55,7 +55,7 @@ __all__ = [
 4. **copy config files to mmclassification/config**
 ```
 
-cp RepVGG-openMMLa/config/repvggb2g4_b32x8.py \
+cp RepVGG-openMMLab/config/repvggb2g4_b32x8.py \
 mmclassification/config/
 
 
