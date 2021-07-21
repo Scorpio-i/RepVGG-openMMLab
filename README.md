@@ -37,7 +37,21 @@ __all__ = [
     ..., 'RepVGG'
 ]
 ```
+4. **copy config files to mmclassification/config**
+```
 
+cp config/repvggb2g4_b32x8.py \
+mmclassification/config/
+
+
+```
+5. **Train Model(如果下载了ImageNet)**
+
+```
+cd mmclassification
+python tools/train.py config/repvggb2g4_b32x8.py 
+
+```
 
 #### **参考**
 [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
