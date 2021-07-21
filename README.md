@@ -1,6 +1,21 @@
 # RepVGG-openMMLab
 
 #### 使用指南
+
+##### Download && Unzip ImageNet
+
+```
+data/download_imagenet.sh 可以做到自动构建Imagenet数据集为
+mmclas需要的结构
+
+mkdir -p mmclassification/data
+cp data/download_imagenet.sh mmclassification/data
+cd mmclassification/data
+bash download_imagenet.sh
+
+```
+
+
 ##### 第一次使用mmcv？
 1. **使用mim来安装mmcv-full**
 ```
@@ -53,6 +68,8 @@ python tools/train.py config/repvggb2g4_b32x8.py
 
 ```
 
-#### **参考**
+##### **参考**
 1. [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
 2. [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
+3. [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
+4. [ImageNet](https://image-net.org/)
