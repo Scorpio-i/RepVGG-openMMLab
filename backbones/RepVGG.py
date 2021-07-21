@@ -119,7 +119,7 @@ class RepVGGBlock(nn.Module):
             self.se(self.rbr_dense(inputs) + self.rbr_1x1(inputs) + id_out))
 
 
-# @BACKBONES.register_module()
+@BACKBONES.register_module()
 class RepVGG(nn.Module):
     """VGG backbone
     Args:
