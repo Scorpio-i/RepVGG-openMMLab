@@ -122,6 +122,13 @@ class RepVGGBlock(nn.Module):
 @BACKBONES.register_module()
 class RepVGG(nn.Module):
     """VGG backbone
+    Example:
+        model = RepVGG(numclasses = 1000,
+                        num_blocks=[4, 6, 16, 1],
+                        width_multiplier=[2.5, 2.5, 2.5, 5],
+                        override_groups_map=g4_map)
+        use model..
+        
     Args:
         num_blocks: Depth of RepVGG, from [4, 6, 16, 1] .
         width_multiplier : stage width  ,from [2.5, 2.5, 2.5, 5] ,default None
