@@ -1,10 +1,10 @@
 # RepVGG-openMMLab
 
->**这个Repo是[OpenMMLab算法生态挑战赛](https://openmmlab.com/competitions/algorithm-2021)所需提交的代码库,本次复现的文献是[RepVGG: Making VGG-style ConvNets Great Again](https://zhuanlan.zhihu.com/p/344324470)**
+>**This repository is the code that needs to be submitted for [OpenMMLab Algorithm Ecological Challenge](https://openmmlab.com/competitions/algorithm-2021)，the paper is [RepVGG: Making VGG-style ConvNets Great Again](http://openaccess.thecvf.com//content/CVPR2021/papers/Ding_RepVGG_Making_VGG-Style_ConvNets_Great_Again_CVPR_2021_paper.pdf)**
 
-#### 使用指南
+#### How TO Use?
 
-##### **MMCV是什么？**
+##### **What is MMCV？**
 MMCV is a foundational library for computer vision research and supports many research projects as below:
 * [MMClassification](https://github.com/open-mmlab/mmclassification):OpenMMLab image classification toolbox and benchmark.
 * [MMDetection](https://github.com/open-mmlab/mmdetection):OpenMMLab detection toolbox and benchmark.
@@ -16,8 +16,8 @@ MMCV is a foundational library for computer vision research and supports many re
 
 
 
-##### **第一次使用mmcv?**
-1. **使用mim来安装mmcv-full**
+##### **Using MMCV for the first time??**
+1. **Install MMCV using MIM**
 ```
 pip install git+https://github.com/open-mmlab/mim.git
 
@@ -26,7 +26,7 @@ mim install mmcv-full
 ```
 
 
-2. **clone MMClassification 并以dev安装**
+2. **clone MMClassification and install**
 ```
 git clone https://github.com/open-mmlab/mmclassification.git
 
@@ -37,13 +37,13 @@ pip install -e .
 
 
 
-3. **到MMclassification注册RepVGG**
+3. **Register RepVGG in MMclassification**
 
 ```
 cp RepVGG-openMMLab/backbones/RepVGG.py \
 mmclassification/mmcls/models/backbones/
 
-在mmclassification/mmcls/models/backbones/__init__.py中添加新模块来注册RepVGG
+in mmclassification/mmcls/models/backbones/__init__.py
 
 ...
 from .RepVGG import RepVGG
@@ -52,7 +52,7 @@ __all__ = [
     ..., 'RepVGG'
 ]
 ```
-4. **copy config files to mmclassification/config**
+4. **copy config file to mmclassification/config**
 ```
 
 cp RepVGG-openMMLab/config/repvggb2g4_b32x8.py \
@@ -60,7 +60,7 @@ mmclassification/config/
 
 
 ```
-5. **Train Model(如果下载了ImageNet)**
+5. **Train Model(If you downloaded Imagenet)**
 
 ```
 cd mmclassification
@@ -70,8 +70,7 @@ python tools/train.py config/repvggb2g4_b32x8.py
 ##### **Download && Unzip ImageNet**
 
 ```
-data/download_imagenet.sh 可以做到自动构建Imagenet数据集为
-mmclas需要的结构
+data/download_imagenet.sh ，This script can automatically build the file structure that Imagenet needs for mmcls
 
 mkdir -p mmclassification/data
 cp RepVGG-openMMLab/data/download_imagenet.sh mmclassification/data
@@ -81,8 +80,8 @@ bash download_imagenet.sh
 ```
 
 
-##### **使用Google云端硬盘上的预训练模型**
-[预训练模型](https://drive.google.com/drive/folders/1g6s_EM6NX2q7Nn3qZWW7MFj6nEDJpExT?usp=sharing)
+##### **Use the pre-trained model on Google Drive**
+[pre-trained model](https://drive.google.com/drive/folders/1g6s_EM6NX2q7Nn3qZWW7MFj6nEDJpExT?usp=sharing)
 
 * ***RepVGGB2g4.pth***
 
@@ -91,7 +90,7 @@ bash download_imagenet.sh
 * ***RepVGGB3.pth***
 
 
-##### **测试模型**
+##### **Test Model**
 
 ```
 in mmclassification
@@ -103,7 +102,7 @@ someting like this..
 
 
 
-##### **参考**
+##### **reference**
 1. [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
 2. [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
 3. [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
