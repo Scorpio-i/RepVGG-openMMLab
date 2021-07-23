@@ -32,7 +32,7 @@ train_pipeline = [
 test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='Resize', size=(256, -1)),
-    dict(type='CenterCrop', crop_size=224),
+    dict(type='CenterCrop', crop_size=256),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='ImageToTensor', keys=['img']),
     dict(type='Collect', keys=['img'])

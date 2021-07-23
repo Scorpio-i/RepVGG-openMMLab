@@ -2,9 +2,16 @@
 
 >**This repository is the code that needs to be submitted for [OpenMMLab Algorithm Ecological Challenge](https://openmmlab.com/competitions/algorithm-2021)，the paper is [RepVGG: Making VGG-style ConvNets Great Again](http://openaccess.thecvf.com//content/CVPR2021/papers/Ding_RepVGG_Making_VGG-Style_ConvNets_Great_Again_CVPR_2021_paper.pdf)**
 
-#### How TO Use?
 
-##### **What is MMCV？**
+#### **Result :)**
+*RepVGG-b2g4 top1 is 79.78*
+*RepVGG-b3g4 top1 is 80.31*
+*RepVGG-B3   top1 is 80.59*
+
+
+#### **How TO Use?**
+
+##### **What is MMCV?**
 MMCV is a foundational library for computer vision research and supports many research projects as below:
 * [MMClassification](https://github.com/open-mmlab/mmclassification):OpenMMLab image classification toolbox and benchmark.
 * [MMDetection](https://github.com/open-mmlab/mmdetection):OpenMMLab detection toolbox and benchmark.
@@ -108,5 +115,4 @@ someting like this..
 3. [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
 4. [ImageNet](https://image-net.org/)
 5. [MMCV DOCs](https://mmcv.readthedocs.io/en/latest/get_started/introduction.html)
-
 
