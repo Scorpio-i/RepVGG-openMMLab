@@ -4,9 +4,9 @@
 
 
 #### **Result :)**
-*RepVGG-b2g4 top1 is 79.78*
-*RepVGG-b3g4 top1 is 80.31*
-*RepVGG-B3   top1 is 80.59*
+1. *RepVGG-b2g4 top1 is 79.78*
+2. *RepVGG-b3g4 top1 is 80.31*
+3. *RepVGG-B3   top1 is 80.59*
 
 
 #### **How TO Use?**
