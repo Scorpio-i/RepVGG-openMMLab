@@ -29,28 +29,28 @@ If pytorch is not installed, can try conda :)
 ``` shell
 # Create a conda virtual environment and activate it
 
-conda create -n open-mmlab python=3.7 -y
-conda activate open-mmlab
+> conda create -n open-mmlab python=3.7 -y
+> conda activate open-mmlab
 
-# If you have CUDA 10.1 installed under /usr/local/cuda and would like to install PyTorch 1.5, you need to install the prebuilt PyTorch with CUDA 10.1
+# If you have CUDA 10.1 installed under #/usr/local/cuda and would like to install #PyTorch 1.5,you need to install the #prebuilt PyTorch #with CUDA 10.1
 
-conda install pytorch cudatoolkit=10.1 torchvision -c pytorch
+> conda install pytorch cudatoolkit=10.1 torchvision -c pytorch
 
 ```
 **and install MMClassification repository now:** 
 
 1. **Install MMCV using MIM**
 ``` shell
-pip install git+https://github.com/open-mmlab/mim.git
-mim install mmcv-full
+> pip install git+https://github.com/open-mmlab/mim.git
+> mim install mmcv-full
 ```
 
 
 2. **clone MMClassification and install**
 ``` shell 
-git clone https://github.com/open-mmlab/mmclassification.git
-cd mmclassification
-pip install -e .
+> git clone https://github.com/open-mmlab/mmclassification.git
+> cd mmclassification
+> pip install -e .
 ```
 
 
@@ -58,8 +58,7 @@ pip install -e .
 3. **Register RepVGG in MMclassification**
 
 ``` shell
-cp RepVGG-openMMLab/backbones/RepVGG.py \
-mmclassification/mmcls/models/backbones/
+> cp RepVGG-openMMLab/backbones/RepVGG.py mmclassification/mmcls/models/backbones/
 ```
 *in mmclassification/mmcls/models/backbones/__init__.py*
 ``` python
@@ -72,38 +71,38 @@ __all__ = [
 ```
 4. **copy config file to mmclassification/config**
 ``` shell
-cp RepVGG-openMMLab/config/repvggb2g4_b32x8.py \
-mmclassification/config/
+> cp RepVGG-openMMLab/config/repvggb2g4_b32x8.py mmclassification/config/
 ```
 5. **Train Model(If you downloaded Imagenet)**
 
 ``` shell
-# cd mmclassification
+> cd mmclassification
+
 # single-gpu
-python tools/train.py config/repvggb2g4_b32x8.py [optional arguments]
+> python tools/train.py config/repvggb2g4_b32x8.py [optional arguments]
 
 # multi-gpu
-./tools/dist_train.sh config/repvggb2g4_b32x8.py 8 [optional arguments]
+> ./tools/dist_train.sh config/repvggb2g4_b32x8.py 8 [optional arguments]
 
-#Optional arguments are:
+# Optional arguments are:
 
-#--no-validate (not suggested): By default, the codebase will perform evaluation at every k (default value is 1) epochs during the training. To disable this behavior, use --no-validate.
+# --no-validate (not suggested): By default, #the codebase will perform evaluation at #every k (default value is 1) epochs during #the training. To disable this behavior, use #--no-validate.
 
-#--work-dir ${WORK_DIR}: Override the working directory specified in the config file.
+# --work-dir ${WORK_DIR}: Override the #working directory specified in the config #file.
 
-#--resume-from ${CHECKPOINT_FILE}: Resume from a previous checkpoint file.
+# --resume-from ${CHECKPOINT_FILE}: Resume #from a previous checkpoint file.
 
-#Difference between resume-from and load-from: resume-from loads both the model weights and optimizer status, and the epoch is also inherited from the specified checkpoint. It is usually used for resuming the training process that is interrupted accidentally. load-from only loads the model weights and the training epoch starts from 0. It is usually used for finetuning
+# Difference between resume-from and load-#from: resume-from loads both the model #weights and optimizer status, and the epoch #is also inherited from the specified #checkpoint. It is usually used for resuming #the training process that is interrupted #accidentally. load-from only loads the #model weights and the training epoch starts #from 0. It is usually used for finetuning
 ```
 ### **Download && Unzip ImageNet**
 *It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files*
 ``` shell
-#data/download_imagenet.sh ，this script can automatically build the file structure that Imagenet needs for mmcls
+# data/download_imagenet.sh ，this script can #automatically build the file structure that #Imagenet needs for mmcls
 
-mkdir -p mmclassification/data
-cp RepVGG-openMMLab/data/download_imagenet.sh mmclassification/data
-cd mmclassification/data
-bash download_imagenet.sh
+> mkdir -p mmclassification/data
+> cp RepVGG-openMMLab/data/download_imagenet.sh mmclassification/data
+> cd mmclassification/data
+> bash download_imagenet.sh
 
 ```
 
@@ -124,17 +123,17 @@ bash download_imagenet.sh
 # in mmclassification
 
 # single-gpu
-python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} [--metrics ${METRICS}] [--out ${RESULT_FILE}]
+> python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} [--metrics ${METRICS}] [--out ${RESULT_FILE}]
 
 
 # multi-gpu
-./tools/dist_test.sh config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} 8 [--metrics ${METRICS}] [--out ${RESULT_FILE}]
+> ./tools/dist_test.sh config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} 8 [--metrics ${METRICS}] [--out ${RESULT_FILE}]
 
 # CHECKPOINT_FILE: checkpoint path
 
-# RESULT_FILE: Filename of the output results. If not specified, the results will not be saved to a file. Support formats include json, yaml and pickle
+# RESULT_FILE: Filename of the output #results. If not specified, the results will #not be saved to a file. Support formats #include json, yaml and pickle
 
-# METRICS：Items to be evaluated on the results, like accuracy, precision, recall, etc
+# METRICS：Items to be evaluated on the #results, like accuracy, precision, recall, #etc
 ```
 
 ## **Citation**
