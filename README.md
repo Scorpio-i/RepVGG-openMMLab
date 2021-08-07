@@ -115,14 +115,28 @@ python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT} --metrics ${METRIC
 something like this..
 ```
 
+## **Citation**
+If you find this project useful in your research, please consider cite:
 
+```
+@misc{mmcv,
+    title={{MMCV: OpenMMLab} Computer Vision Foundation},
+    author={MMCV Contributors},
+    howpublished = {\url{https://github.com/open-mmlab/mmcv}},
+    year={2018}
+}
+
+@misc{2020mmclassification,
+    title={OpenMMLab's Image Classification Toolbox and Benchmark},
+    author={MMClassification Contributors},
+    howpublished = {\url{https://github.com/open-mmlab/mmclassification}},
+    year={2020}
+}
+
+```
 
 ## **reference**
-- [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
-- [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
 - [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
 - [MMCV Docs](https://mmcv.readthedocs.io/en/latest/get_started/introduction.html)
 - [ImageNet](https://image-net.org/)
-
-
 
