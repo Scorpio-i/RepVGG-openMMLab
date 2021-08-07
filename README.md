@@ -79,10 +79,11 @@ mmclassification/config/
 
 ``` shell
 cd mmclassification
-python tools/train.py config/repvggb2g4_b32x8.py 
+
+python tools/train.py config/repvggb2g4_b32x8.py
 ```
 ##### **Download && Unzip ImageNet**
-**It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files**
+*It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files*
 ``` shell
 #data/download_imagenet.sh ，this script can automatically build the file structure that Imagenet needs for mmcls
 
@@ -94,8 +95,8 @@ bash download_imagenet.sh
 ```
 
 
-##### **Use the pre-trained model on Google Drive**
-[pre-trained model](https://drive.google.com/drive/folders/1g6s_EM6NX2q7Nn3qZWW7MFj6nEDJpExT?usp=sharing)
+##### **Pre-trained Model**
+*pre-trained model in [Google Drive](https://drive.google.com/drive/folders/1g6s_EM6NX2q7Nn3qZWW7MFj6nEDJpExT?usp=sharing)*
 
 * ***RepVGGB2g4.pth***
 
@@ -106,20 +107,20 @@ bash download_imagenet.sh
 
 ##### **Test Model**
 
-```
+``` shell
 in mmclassification
 
-python tools/test.py config/repvggb2g4_b32x8.py ${repvggb2g4 model file} --meterics accuracy
+python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT} --metrics ${METRICS} --out ${RESULT}
 
 someting like this..
 ```
 
 
 
-##### **reference**
-1. [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
-2. [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
-3. [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
-4. [ImageNet](https://image-net.org/)
-5. [MMCV DOCs](https://mmcv.readthedocs.io/en/latest/get_started/introduction.html)
+### **reference**
+- [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
+- [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
+- [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
+- [MMCV Docs](https://mmcv.readthedocs.io/en/latest/get_started/introduction.html)
+- [ImageNet](https://image-net.org/)
 
