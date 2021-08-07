@@ -78,9 +78,22 @@ mmclassification/config/
 5. **Train Model(If you downloaded Imagenet)**
 
 ``` shell
-cd mmclassification
+# cd mmclassification
+# single-gpu
+python tools/train.py config/repvggb2g4_b32x8.py [optional arguments]
 
-python tools/train.py config/repvggb2g4_b32x8.py
+# multi-gpu
+./tools/dist_train.sh config/repvggb2g4_b32x8.py 8 [optional arguments]
+
+#Optional arguments are:
+
+#--no-validate (not suggested): By default, the codebase will perform evaluation at every k (default value is 1) epochs during the training. To disable this behavior, use --no-validate.
+
+#--work-dir ${WORK_DIR}: Override the working directory specified in the config file.
+
+#--resume-from ${CHECKPOINT_FILE}: Resume from a previous checkpoint file.
+
+#Difference between resume-from and load-from: resume-from loads both the model weights and optimizer status, and the epoch is also inherited from the specified checkpoint. It is usually used for resuming the training process that is interrupted accidentally. load-from only loads the model weights and the training epoch starts from 0. It is usually used for finetuning
 ```
 ### **Download && Unzip ImageNet**
 *It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files*
@@ -108,11 +121,20 @@ bash download_imagenet.sh
 ### **Test Model**
 
 ``` shell
-in mmclassification
+# in mmclassification
 
-python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT} --metrics ${METRICS} --out ${RESULT}
+# single-gpu
+python tools/test.py config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} [--metrics ${METRICS}] [--out ${RESULT_FILE}]
 
-something like this..
+
+# multi-gpu
+./tools/dist_test.sh config/repvggb2g4_b32x8.py ${CHECKPOINT_FILE} 8 [--metrics ${METRICS}] [--out ${RESULT_FILE}]
+
+# CHECKPOINT_FILE: checkpoint path
+
+# RESULT_FILE: Filename of the output results. If not specified, the results will not be saved to a file. Support formats include json, yaml and pickle
+
+# METRICS：Items to be evaluated on the results, like accuracy, precision, recall, etc
 ```
 
 ## **Citation**
