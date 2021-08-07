@@ -32,7 +32,7 @@ If pytorch is not installed, can try conda :)
 > conda create -n open-mmlab python=3.7 -y
 > conda activate open-mmlab
 
-# If you have CUDA 10.1 installed under #/usr/local/cuda and would like to install #PyTorch 1.5,you need to install the #prebuilt PyTorch #with CUDA 10.1
+# If you have CUDA 10.1 installed under /usr/local/cuda and would like to install PyTorch 1.5,you need to install the prebuilt PyTorch with CUDA 10.1
 
 > conda install pytorch cudatoolkit=10.1 torchvision -c pytorch
 
@@ -86,18 +86,18 @@ __all__ = [
 
 # Optional arguments are:
 
-# --no-validate (not suggested): By default, #the codebase will perform evaluation at #every k (default value is 1) epochs during #the training. To disable this behavior, use #--no-validate.
+# --no-validate (not suggested): By default, the codebase will perform evaluation at every k (default value is 1) epochs during the training. To disable this behavior, use --no-validate.
 
-# --work-dir ${WORK_DIR}: Override the #working directory specified in the config #file.
+# --work-dir ${WORK_DIR}: Override the working directory specified in the config file.
 
-# --resume-from ${CHECKPOINT_FILE}: Resume #from a previous checkpoint file.
+# --resume-from ${CHECKPOINT_FILE}: Resume from a previous checkpoint file.
 
-# Difference between resume-from and load-#from: resume-from loads both the model #weights and optimizer status, and the epoch #is also inherited from the specified #checkpoint. It is usually used for resuming #the training process that is interrupted #accidentally. load-from only loads the #model weights and the training epoch starts #from 0. It is usually used for finetuning
+# Difference between resume-from and load-from: resume-from loads both the model weights and optimizer status, and the epoch is also inherited from the specified checkpoint. It is usually used for resuming the training process that is interrupted accidentally. load-from only loads the model weights and the training epoch starts from 0. It is usually used for finetuning
 ```
 ### **Download && Unzip ImageNet**
 *It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files*
 ``` shell
-# data/download_imagenet.sh ，this script can #automatically build the file structure that #Imagenet needs for mmcls
+# data/download_imagenet.sh ，this script can automatically build the file structure that Imagenet needs for mmcls
 
 > mkdir -p mmclassification/data
 > cp RepVGG-openMMLab/data/download_imagenet.sh mmclassification/data
@@ -131,9 +131,9 @@ __all__ = [
 
 # CHECKPOINT_FILE: checkpoint path
 
-# RESULT_FILE: Filename of the output #results. If not specified, the results will #not be saved to a file. Support formats #include json, yaml and pickle
+# RESULT_FILE: Filename of the output results. If not specified, the results will not be saved to a file. Support formats include json, yaml and pickle
 
-# METRICS：Items to be evaluated on the #results, like accuracy, precision, recall, #etc
+# METRICS：Items to be evaluated on the results, like accuracy, precision, recall, etc
 ```
 
 ## **Citation**
