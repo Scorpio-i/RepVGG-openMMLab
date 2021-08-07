@@ -3,16 +3,16 @@
 >**This repository is the code that needs to be submitted for [OpenMMLab Algorithm Ecological Challenge](https://openmmlab.com/competitions/algorithm-2021)，the paper is [RepVGG: Making VGG-style ConvNets Great Again](http://openaccess.thecvf.com//content/CVPR2021/papers/Ding_RepVGG_Making_VGG-Style_ConvNets_Great_Again_CVPR_2021_paper.pdf)**
 
 
-### **Result**
+## **Result**
 
 - *RepVGG-b2g4 top1 is **79.78***
 - *RepVGG-b3g4 top1 is **80.31***
 - *RepVGG-B3   top1 is **80.31***
 
 
-### **How TO Use?**
+## **How TO Use?**
 
-#### **What is MMCV？**
+### **What is MMCV？**
 MMCV is a foundational library for computer vision research and supports many research projects as below:
 * [MMClassification](https://github.com/open-mmlab/mmclassification):OpenMMLab image classification toolbox and benchmark.
 * [MMDetection](https://github.com/open-mmlab/mmdetection):OpenMMLab detection toolbox and benchmark.
@@ -24,7 +24,7 @@ MMCV is a foundational library for computer vision research and supports many re
 
 
 
-#### **Using MMCV for the first time?**
+### **Using MMCV for the first time?**
 If pytorch is not installed, can try conda :)
 ``` shell
 # Create a conda virtual environment and activate it
@@ -82,7 +82,7 @@ cd mmclassification
 
 python tools/train.py config/repvggb2g4_b32x8.py
 ```
-#### **Download && Unzip ImageNet**
+### **Download && Unzip ImageNet**
 *It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files*
 ``` shell
 #data/download_imagenet.sh ，this script can automatically build the file structure that Imagenet needs for mmcls
@@ -95,7 +95,7 @@ bash download_imagenet.sh
 ```
 
 
-#### **Pre-trained Model**
+### **Pre-trained Model**
 *pre-trained model in [Google Drive](https://drive.google.com/drive/folders/1g6s_EM6NX2q7Nn3qZWW7MFj6nEDJpExT?usp=sharing)*
 
 * ***RepVGGB2g4.pth***
@@ -105,7 +105,7 @@ bash download_imagenet.sh
 * ***RepVGGB3.pth***
 
 
-#### **Test Model**
+### **Test Model**
 
 ``` shell
 in mmclassification
@@ -117,7 +117,7 @@ something like this..
 
 
 
-### **reference**
+## **reference**
 - [RepVGG：极简架构，SOTA性能，让VGG式模型再次伟大（CVPR-2021)](https://zhuanlan.zhihu.com/p/344324470)
 - [RepVGG: Making VGG-style ConvNets Great Again (CVPR-2021) (PyTorch)](https://github.com/DingXiaoH/RepVGG#readme)
 - [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
