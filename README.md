@@ -25,10 +25,10 @@ MMCV is a foundational library for computer vision research and supports many re
 
 
 ##### **Using MMCV for the first time??**
-**If pytorch is not installed, can try conda :)**
-``` python
-
+If pytorch is not installed, can try conda :)
+``` shell
 # Create a conda virtual environment and activate it
+
 conda create -n open-mmlab python=3.7 -y
 conda activate open-mmlab
 
@@ -40,20 +40,16 @@ conda install pytorch cudatoolkit=10.1 torchvision -c pytorch
 **and install MMClassification repository now:** 
 
 1. **Install MMCV using MIM**
-``` python
+``` shell
 pip install git+https://github.com/open-mmlab/mim.git
-
 mim install mmcv-full
-
 ```
 
 
 2. **clone MMClassification and install**
-``` python 
+``` shell 
 git clone https://github.com/open-mmlab/mmclassification.git
-
 cd mmclassification
-
 pip install -e .
 ```
 
@@ -61,13 +57,12 @@ pip install -e .
 
 3. **Register RepVGG in MMclassification**
 
-```  
+``` shell
 cp RepVGG-openMMLab/backbones/RepVGG.py \
 mmclassification/mmcls/models/backbones/
 ```
-```python
-#in mmclassification/mmcls/models/backbones/__init__.py
-
+*in mmclassification/mmcls/models/backbones/__init__.py*
+``` python
 ...
 from .RepVGG import RepVGG
 
@@ -76,23 +71,19 @@ __all__ = [
 ]
 ```
 4. **copy config file to mmclassification/config**
-```
-
+``` shell
 cp RepVGG-openMMLab/config/repvggb2g4_b32x8.py \
 mmclassification/config/
-
-
 ```
 5. **Train Model(If you downloaded Imagenet)**
 
-``` python
+``` shell
 cd mmclassification
 python tools/train.py config/repvggb2g4_b32x8.py 
-
 ```
 ##### **Download && Unzip ImageNet**
 **It is recommended to symlink the dataset root to $MMCLASSIFICATION/data. If your folder structure is different, you may need to change the corresponding paths in config files**
-``` python
+``` shell
 #data/download_imagenet.sh ，this script can automatically build the file structure that Imagenet needs for mmcls
 
 mkdir -p mmclassification/data
@@ -131,5 +122,4 @@ someting like this..
 3. [MMClassification Docs](https://mmclassification.readthedocs.io/zh_CN/latest/install.html)
 4. [ImageNet](https://image-net.org/)
 5. [MMCV DOCs](https://mmcv.readthedocs.io/en/latest/get_started/introduction.html)
-
 
